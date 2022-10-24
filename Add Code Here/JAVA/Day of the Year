@@ -1,0 +1,36 @@
+class Solution {
+    public int dayOfYear(String Date) {
+        
+//         int k=   Integer.parseInt(date.substring(8,10)) ;      //day of the month
+//         int m=   Integer.parseInt(date.substring(5,7))  ;    //month number
+//         int D=  Integer.parseInt(date.substring(2,4))   ; // last two digit of number
+//         int C=   Integer.parseInt(date.substring(0,2))  ;//first two digit of the uyeaer
+        
+//             System.out.println(k);
+//             System.out.println(m);
+//             System.out.println(D);
+//             System.out.println(C);
+        
+//         // int n=01;
+//         // System.out.println((date.substring(8,10)));
+//         int F = k+ (13*m-1)/5 +D+ D/4 +(C/4)-2*C;
+        
+//         return F;
+        
+        int[] daysInMonths = {31,28,31,30,31,30,31,31,30,31,30,31}; 
+       
+        int year = Integer.parseInt(Date.substring(0,4)); 
+        int month = Integer.parseInt(Date.substring(5,7)); 
+        int date = Integer.parseInt(Date.substring(8,10));  
+
+        int days = 0;
+        for(int idx = 0; idx + 1 < month ; idx++)
+            days += daysInMonths[idx]; // adding days till that month
+        
+        if(month > 2  && year % 4 == 0 && year != 1900) return days + 1 + date;
+      
+        return days + date; //else return
+        
+        
+    }
+}
